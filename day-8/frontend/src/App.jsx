@@ -5,7 +5,7 @@ function App() {
   const [notes, setNotes] = useState([])
 
   function fetchnotes(){
-    axios.get("http://localhost:3000/api/notes")
+    axios.get("https://backend-cm4r.onrender.com/api/notes")
       .then((res) => {
         setNotes(res.data)
       })
@@ -18,7 +18,7 @@ function App() {
   const {title,description} = e.target.elements
 
   console.log(title.value,description.value)
-  axios.post("http://localhost:3000/api/notes",{
+  axios.post("https://backend-cm4r.onrender.com/api/notes",{
     title:title.value,
     description:description.value
   })
@@ -33,7 +33,7 @@ function App() {
   }, [])
 
   function HandleDeleteNote(noteId){
-    axios.delete("http://localhost:3000/api/notes/"+noteId)
+    axios.delete("https://backend-cm4r.onrender.com/api/notes/"+noteId)
     .then(res=>{
       fetchnotes(); // Refresh the notes list after deletion
     })
